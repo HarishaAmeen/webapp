@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+{% load staticfiles%}
+
+<html>
+<head>
+    <title>Sample webpage</title>
+    
+    <link type="text/css" rel="stylesheet" href="{% static 'devops/css/bootstrap.css' %}" />
+    <link type="text/css" rel="stylesheet" href="{% static 'devops/css/mycss.css' %}" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script src="{% static 'devops/js/jquery.js'%}"></script>
+    <script src="{% static 'devops/js/bootstrap.js' %}"></script>
+    <script language="JavaScript" type="text/javascript">
+    $(document).ready(function(){
+    $('.carousel').carousel({
+      interval: 2000
+    })
+  });    
+</script>
+</head>
+
+<body>
+    
+    <!-- Fixes Navigation Bar with drop down menu
+    ======================================================-->
+    
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="buttton" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">MyWeb</a>
+            </div>
+            
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="feature.html">Features</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Downloads<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">For Android</a></li>
+                            <li><a href="#">For iOS</a></li>
+                            <li><a href="#">For Windows</a></li>
+                            <li><a href="#">For linux</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">		
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong>Sign in</strong><b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li> <a data-toggle="modal" href="#myModalone"> Sign in </a></li>
+								
+							<li class="divider"></li>
+							<li><a href="#myModal2"><em>Don't have a account?</em><strong>Sign up</strong> </a> </li>
+						</ul>
+					</li>
+				</ul>	
+			 </div>
+            
+        </div>
+    </nav>		
+					
+    <!-- Carousel
+    =========================-->
+    
+    <div id="carousel-example-generic" class="carousel slide" data-ride='carousel'>
+        
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        {% for image in images %}
+            <div class="carousel-inner">
+                {% if image == 'devops/images/slide1.jpg'%}            
+                <div class="item active">
+                {% else %}
+                <div class="item">
+                {% endif %}
+                    <img src="{% static image %}" alt="" />
+                    <div class="container">
+                        <div class="carousel-caption">
+                        <h1>Image is from {{image}}</h1>
+                        <!--p>this tag will contain the text which we want to appear on our slide.</p>
+                        <p><a class="btn btn-large btn-primary">Get Started</a></p -->
+                        </div>
+                    </div >
+                </div>
+            </div>
+
+        {% endfor %}
+            <!-- Controls -->
+        <a class='left carousel-control' href='#carousel-example-generic' data-slide='prev'>
+            <span class='glyphicon glyphicon-chevron-left'></span>
+        </a>
+        <a class='right carousel-control' href='#carousel-example-generic' data-slide='next'>
+            <span class='glyphicon glyphicon-chevron-right'></span>
+        </a>
+    </div>
+    
+   
+  
+   
+    
+    <!-- Grid
+    ==========================-->
+    
+    <div class="container">
+        
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h1>First Heading</h1>
+                <p>
+                    Some text will go here. Some text will go here. Some text will go here.
+                    Some text will go here. Some text will go here. Some text will go here. Some text will go here. 
+                </p>
+            </div>
+            
+            <div class="col-md-6">
+                <h1>First Heading</h1>
+                <p>
+                    Some text will go here. Some text will go here. Some text will go here.
+                    Some text will go here. Some text will go here. Some text will go here. Some text will go here. 
+                </p>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    
+    <!-- Font Awesome Icons
+    ============================-->
+    
+   
+    
+    <!-- Footer and Modal
+    ==========================-->
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+       
+                <p><center><h4>Copyright &copy; myWeb.Inc.
+                    <a data-toggle="modal" href="#myModal">Terms and Conditions</a></h4></center>
+                </p>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabinex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2>Terms and Conditions</h2>
+                            </div>
+                            <div class="modal-body">
+                                <p>The text will go here.....</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+								<div class="modal fade" id="myModalone" tabinex="-1" role="dialog" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+												<h2>Log in to MyWeb</h2>
+											
+											</div>
+											<div class="modal-body">
+												<form class="form-horizontal" role="form">
+													<div class="form-group">
+														<label for="username" class="col-sm-3 control-label">User Name</label>
+															<div class="col-sm-9">
+																<input type="text" class="form-control" id="username" placeholder="Enter username">
+															</div> 
+													</div>
+								
+													<div class="form-group">
+														<label for="password" class="col-sm-3 control-label">Password</label>
+															<div class="col-sm-9">
+																<input type="password" class="form-control" id="password" >
+															</div> 
+													</div>
+												</form>
+											</div>	
+											<div class="modal-footer">
+												<button type="button" class="btn btn-primary" type="submit" value="send!" id="submit">sign in</button>
+											</div>
+										</div>
+									</div>
+								</div>
+</body>
+</html>
